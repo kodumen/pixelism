@@ -4,21 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pixelism</title>
-    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/pure.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <div id="splash">
-        <p><b>Pixelism</b></p>
         <p>Loading...</p>
     </div>
     
-    <div id="app" class="container-fluid" hidden>
-        <div id="navbar" class="row">
-            <div class="col-sm-12">
-                <h1>Pixelism</h1>
-            </div>
+    <div id="app" class="pure-g" hidden>
+        <div class="pure-u-4-5">
+            The App
         </div>
+        <div class="pure-u-1-5">
+            The Sidebar           
+        </div>
+    </div>
+    
+    <div id="menu" class="pure-menu menu-hidden">
+        The Menu
+    </div>
+    
+    <div id="header" class="pure-menu pure-menu-horizontal">
+        <a href="#" class="pure-menu-heading">Pixelism</a>
     </div>
     
     <script src="/js/vue.js"></script>

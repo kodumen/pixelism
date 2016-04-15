@@ -1,4 +1,43 @@
+html {
+    height: 100%;    
+}
+
 body {
-    background-color: #3d3d3d;
+    background-color: #333;
+    color: #fff;
+    height: 100%;
+}
+
+#splash {
+    padding: 35px 0 0;
+    text-align: center;
+}
+
+#app {
+    height: 100%;
+}
+
+#menu {
+    background-color: #555;
+    height: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.menu-hidden {
+    display: none;
+}
+
+.menu-shown {
+    display: inline-block;
+}
+
+#header {
+    background-color: #111;
+    position: fixed;
+    top: 0;
+}
+
+.pure-menu-heading {
     color: #fff;
 }

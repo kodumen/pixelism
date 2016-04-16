@@ -17,14 +17,14 @@
     <div id="app" class="pure-g" hidden>
         <div class="pure-u-4-5 shell-pad">            
             <div id="canvas">                
-                <svg class="grid-on" width="512" height="512" viewBox="0 0 512 512">
+                <svg v-bind:class="{'grid-on': isShowGrid}" width="512" height="512" viewBox="0 0 512 512">
                     <g v-for="i in 32">
                         <pixel v-for="j in 32" :x="j" :y="i" fill="white">
                     </g>
                 </svg>                
                 
                 <div class="toolbar">
-                    <button class="pure-button toolbar-btn-on">
+                    <button class="pure-button" v-on:click="toggleGrid" v-bind:class="{'toolbar-btn-on': isShowGrid}">
                         <i class="fa fa-th-large"></i>
                         Toggle Grid
                     </button>

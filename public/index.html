@@ -15,12 +15,21 @@
     </div>
     
     <div id="app" class="pure-g" hidden>
-        <div class="pure-u-4-5 shell-pad">
-            <svg id="canvas" width="512" height="512" viewBox="0 0 512 512">
-                <g v-for="i in 32">
-                    <pixel v-for="j in 32" :x="j" :y="i" fill="white">
-                </g>
-            </svg>
+        <div class="pure-u-4-5 shell-pad">            
+            <div id="canvas">                
+                <svg class="grid-on" width="512" height="512" viewBox="0 0 512 512">
+                    <g v-for="i in 32">
+                        <pixel v-for="j in 32" :x="j" :y="i" fill="white">
+                    </g>
+                </svg>                
+                
+                <div class="toolbar">
+                    <button class="pure-button toolbar-btn-on">
+                        <i class="fa fa-th-large"></i>
+                        Toggle Grid
+                    </button>
+                </div>
+            </div>
         </div>
         <div class="pure-u-1-5">
             The Sidebar           

@@ -22,17 +22,20 @@
         </div>
     </div>
     
-    <div id="menu" class="pure-menu menu-hidden">
-        The Menu
+    <div id="shell">
+        <div id="menu" class="pure-menu menu-hidden" v-show="isShowMenu">
+            The Menu
+        </div>
+        
+        <div id="header" class="pure-menu pure-menu-horizontal">
+            <a href="#" role="button" class="pure-menu-heading" v-on:click="toggleMenu">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="#" class="pure-menu-heading">Pixelism</a>
+        </div>
     </div>
     
-    <div id="header" class="pure-menu pure-menu-horizontal">
-        <a href="#" role="button" class="pure-menu-heading">
-            <i class="fa fa-bars"></i>
-        </a>
-        <a href="#" class="pure-menu-heading">Pixelism</a>
-    </div>
-    
+    <script src="/js/components/shell.js"></script>
     <script src="/js/vue.js"></script>
     <script src="/js/main.js"></script>
 </body>

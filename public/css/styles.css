@@ -19,17 +19,10 @@ body {
 
 #menu {
     background-color: #555;
+    display: inline-block;
     height: 100%;
     position: fixed;
     top: 0;
-}
-
-.menu-hidden {
-    display: none;
-}
-
-.menu-shown {
-    display: inline-block;
 }
 
 #header {

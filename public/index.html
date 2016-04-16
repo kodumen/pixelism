@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/fonts/css/font-awesome.css">
 </head>
 <body>
-    <div id="splash">
+    <div id="splash" class="shell-pad">
         <p>Loading...</p>
     </div>
     
@@ -23,8 +23,12 @@
     </div>
     
     <div id="shell">
-        <div id="menu" class="pure-menu menu-hidden" v-show="isShowMenu">
-            The Menu
+        <div id="menu" class="pure-menu" v-show="isShowMenu">
+            <ul class="pure-menu-list shell-pad">
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Draw</a></li>
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">About</a></li>
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Github</a></li>
+            </ul>
         </div>
         
         <div id="header" class="pure-menu pure-menu-horizontal">

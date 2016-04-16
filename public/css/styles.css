@@ -9,7 +9,6 @@ body {
 }
 
 #splash {
-    padding: 35px 0 0;
     text-align: center;
 }
 
@@ -33,4 +32,9 @@ body {
 
 .pure-menu-heading {
     color: #fff;
+}
+
+/* Padding that takes the #shell into account. */
+.shell-pad {
+    padding: 35px 0 0;
 }

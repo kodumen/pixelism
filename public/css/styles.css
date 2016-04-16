@@ -38,6 +38,39 @@ body {
     background-color: coral;
 }
 
+#canvas {
+    display: block;
+    height: 512px;
+    margin: auto;
+    padding: 35px 0 0;
+    width: 512px;
+}
+
+#canvas rect {
+    height: 32px;
+    stroke-width: 1px;
+    width: 32px;
+}
+
+
+.grid-on rect {
+    stroke: black;
+}
+
+.toolbar {
+    padding: 16px 0 0;
+}
+
+.toolbar button {
+    background-color: #333;
+    color: white;
+}
+
+.toolbar .toolbar-btn-on,
+.toolbar .toolbar-btn-on:hover {
+    background-color: coral;
+}
+
 /* Padding that takes the #shell into account. */
 .shell-pad {
     padding: 35px 0 0;

@@ -16,7 +16,11 @@
     
     <div id="app" class="pure-g" hidden>
         <div class="pure-u-4-5 shell-pad">
-            <div id="canvas">The Canvas</div>
+            <svg id="canvas" width="512" height="512" viewBox="0 0 512 512">
+                <g v-for="i in 32">
+                    <pixel v-for="j in 32" :x="j" :y="i" fill="white">
+                </g>
+            </svg>
         </div>
         <div class="pure-u-1-5">
             The Sidebar           
@@ -40,8 +44,10 @@
         </div>
     </div>
     
-    <script src="/js/components/shell.js"></script>
     <script src="/js/vue.js"></script>
+    <script src="/js/components/shell.js"></script>
+    <script src="/js/components/pixel.js"></script>
+    <script src="/js/components/canvas.js"></script>
     <script src="/js/main.js"></script>
 </body>
 </html>

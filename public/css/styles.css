@@ -39,8 +39,16 @@ body {
 }
 
 #canvas {
-    padding: 35px 0 0;
+    display: block;
     margin: auto;
+    padding: 35px 0 0;
+}
+
+#canvas rect {
+    height: 32px;
+    stroke: black;
+    stroke-width: 1px;
+    width: 32px;
 }
 
 /* Padding that takes the #shell into account. */

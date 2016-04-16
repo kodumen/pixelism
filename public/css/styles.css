@@ -9,7 +9,6 @@ body {
 }
 
 #splash {
-    padding: 35px 0 0;
     text-align: center;
 }
 
@@ -19,17 +18,10 @@ body {
 
 #menu {
     background-color: #555;
+    display: inline-block;
     height: 100%;
     position: fixed;
     top: 0;
-}
-
-.menu-hidden {
-    display: none;
-}
-
-.menu-shown {
-    display: inline-block;
 }
 
 #header {
@@ -38,6 +30,21 @@ body {
     top: 0;
 }
 
-.pure-menu-heading {
+.pure-menu-heading, #menu .pure-menu-link {
     color: #fff;
+}
+
+#menu .pure-menu-link:hover, #menu .pure-menu-link:focus {
+    background-color: coral;
+}
+
+/* Padding that takes the #shell into account. */
+.shell-pad {
+    padding: 35px 0 0;
+}
+
+/* Override animate.css animation duration. */
+.animated {
+    -webkit-animation-duration: 0.08s;
+    animation-duration: 0.08s;
 }

@@ -1,8 +1,9 @@
 var shellModel = {
     el: '#shell',
     data: {
-        isShowMenu: false,
-        animation: ''
+        isMenuActive: false,
+        isMenuShown: false,
+        menuAnimation: ''
     },
     methods: {
         toggleMenu: _shellToggleMenu
@@ -13,6 +14,8 @@ var shellModel = {
  * Show or hide the menu.
  */
 function _shellToggleMenu() {
-    this.isShowMenu = !this.isShowMenu;
-    this.animation = this.isShowMenu ? 'slideInLeft' : 'slideOutLeft';
+    // Menu started out hidden, so from now on, show it.
+    this.isMenuActive = true;
+    this.isMenuShown = !this.isMenuShown;
+    this.menuAnimation = this.isMenuShown ? 'slideInLeft' : 'slideOutLeft';    
 }

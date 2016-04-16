@@ -38,6 +38,11 @@ body {
     background-color: coral;
 }
 
+#canvas {
+    padding: 35px 0 0;
+    margin: auto;
+}
+
 /* Padding that takes the #shell into account. */
 .shell-pad {
     padding: 35px 0 0;

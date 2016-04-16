@@ -1,7 +1,8 @@
 var shellModel = {
     el: '#shell',
     data: {
-        isShowMenu: false
+        isShowMenu: false,
+        animation: ''
     },
     methods: {
         toggleMenu: _shellToggleMenu
@@ -13,6 +14,5 @@ var shellModel = {
  */
 function _shellToggleMenu() {
     this.isShowMenu = !this.isShowMenu;
+    this.animation = this.isShowMenu ? 'slideInLeft' : 'slideOutLeft';
 }
-
-

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/pure.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/fonts/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/animate.css">
 </head>
 <body>
     <div id="splash" class="shell-pad">
@@ -23,7 +24,7 @@
     </div>
     
     <div id="shell">
-        <div id="menu" class="pure-menu" v-show="isShowMenu">
+        <div id="menu" class="pure-menu animated" v-show="isShowMenu" v-bind:class="[animation]">
             <ul class="pure-menu-list shell-pad">
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">Draw</a></li>
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">About</a></li>

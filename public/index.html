@@ -18,8 +18,8 @@
         <div class="pure-u-4-5 shell-pad">            
             <div id="canvas">                
                 <svg v-bind:class="{'grid-on': isShowGrid}" width="512" height="512" viewBox="0 0 512 512">
-                    <g v-for="i in 32">
-                        <pixel v-for="j in 32" :x="j" :y="i" fill="white">
+                    <g v-for="i in 16">
+                        <pixel v-for="j in 16" :x="j" :y="i" fill="white">
                     </g>
                 </svg>                
                 

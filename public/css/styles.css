@@ -30,8 +30,12 @@ body {
     top: 0;
 }
 
-.pure-menu-heading {
+.pure-menu-heading, #menu .pure-menu-link {
     color: #fff;
+}
+
+#menu .pure-menu-link:hover, #menu .pure-menu-link:focus {
+    background-color: coral;
 }
 
 /* Padding that takes the #shell into account. */

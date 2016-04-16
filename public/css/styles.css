@@ -42,3 +42,9 @@ body {
 .shell-pad {
     padding: 35px 0 0;
 }
+
+/* Override animate.css animation duration. */
+.animated {
+    -webkit-animation-duration: 0.08s;
+    animation-duration: 0.08s;
+}

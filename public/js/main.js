@@ -5,26 +5,28 @@
 var app;
 var splash;
 
+var defaultCanvas;
+
 // Vue
 var shell;
 var canvas;
-var pixelComponent;
-var colorPicker;
+var canvasCellComponent;
 
 /**
  * Initialize the application.
  */
 function init() {
+    defaultCanvas = createBlankCanvas(16, 16, 32);
+    
     // Define components
-    pixelComponent = Vue.extend(pixelModel);
+    canvasCellComponent = Vue.extend(canvasCellModel);
     
     // Register components
-    Vue.component('pixel', pixelComponent);
+    Vue.component('canvas-cell', canvasCellComponent)
     
     // Create root instances
     shell = new Vue(shellModel);
-    canvas = new Vue(canvasModel);
-    colorPicker = new Vue(colorPickerModel);
+    canvas = new Vue(new CanvasModel(defaultCanvas));
     
     // Other shit
     app = document.querySelector('#app');

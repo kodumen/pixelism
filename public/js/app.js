@@ -24,7 +24,8 @@ function AppModel(canvas) {
             }            
         },
         methods: {
-            canvasToggleGrid: _appCanvasToggleGrid
+            canvasToggleGrid: _appCanvasToggleGrid,
+            canvasSetRectFill: _appCanvasSetRectFill
         },
         computed: {
             canvasViewBox: _appCanvasGetViewBox
@@ -44,4 +45,16 @@ function _appCanvasToggleGrid() {
  */
 function _appCanvasGetViewBox() {
     return "0 0 " + this.canvas.width + " " + this.canvas.height;
+}
+
+/**
+ * Set the fill of the clicked rectangle.
+ */
+function _appCanvasSetRectFill(event) {
+    // Why not just change the rect's fill attribute?
+    // Dunno. Data integrity or some shit. If I set the
+    // rect attribute, its value in canvas.cells won't
+    // be updated.
+    var rectId = event.target.getAttribute('r-id');
+    this.canvas.cells[rectId].fill = '#000';
 }

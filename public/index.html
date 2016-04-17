@@ -18,7 +18,7 @@
         <div class="pure-u-4-5 shell-pad">            
             <div id="canvas">                
                 <svg v-bind:class="{'grid-on': canvas.isShowGrid}" :width="canvas.width" :height="canvas.height" :viewBox="canvasViewBox" style="display: block; margin: auto;">
-                    <rect v-for="cell in canvas.cells" :x="cell.x" :y="cell.y" :width="canvas.cellSize" :height="canvas.cellSize" :fill="cell.fill"></rect>
+                    <rect v-for="cell in canvas.cells" r-id="{{$index}}" :x="cell.x" :y="cell.y" :width="canvas.cellSize" :height="canvas.cellSize" :fill="cell.fill" v-on:click="canvasSetRectFill"></rect>
                 </svg>                
                 
                 <div class="toolbar">

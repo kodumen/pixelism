@@ -24,10 +24,10 @@ function AppModel(canvas) {
             }            
         },
         methods: {
-            toggleGrid: _canvasToggleGrid
+            canvasToggleGrid: _appCanvasToggleGrid
         },
         computed: {
-            canvasViewBox: _canvasGetViewBox
+            canvasViewBox: _appCanvasGetViewBox
         }
     }
 }
@@ -35,13 +35,13 @@ function AppModel(canvas) {
 /**
  * Turn grid on or off.
  */
-function _canvasToggleGrid() {
+function _appCanvasToggleGrid() {
     this.canvas.isShowGrid = !this.canvas.isShowGrid;
 }
 
 /**
  * Return the default viewBox.
  */
-function _canvasGetViewBox() {
+function _appCanvasGetViewBox() {
     return "0 0 " + this.canvas.width + " " + this.canvas.height;
 }

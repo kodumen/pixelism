@@ -10,19 +10,12 @@ var defaultCanvas;
 // Vue
 var shell;
 var canvas;
-var canvasCellComponent;
 
 /**
  * Initialize the application.
  */
 function init() {
     defaultCanvas = createBlankCanvas(16, 16, 32);
-    
-    // Define components
-    canvasCellComponent = Vue.extend(canvasCellModel);
-    
-    // Register components
-    Vue.component('canvas-cell', canvasCellComponent)
     
     // Create root instances
     shell = new Vue(shellModel);

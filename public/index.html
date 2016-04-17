@@ -17,8 +17,8 @@
     <div id="app" class="pure-g" hidden>
         <div class="pure-u-4-5 shell-pad">            
             <div id="canvas">                
-                <svg v-bind:class="{'grid-on': isShowGrid}" :width="width" :height="height" viewBox="{{'0 0 ' + width + ' ' + height}}" style="display: block; margin: auto;">
-                    <canvas-cell v-for="cell in cells" :x="cell.x" :y="cell.y" :size="cellSize" :fill="cell.fill" v-on:click="cell.setFill"></canvas-cell>
+                <svg v-bind:class="{'grid-on': isShowGrid}" :width="width" :height="height" :viewBox="viewBox" style="display: block; margin: auto;">
+                    <rect v-for="cell in cells" :x="cell.x" :y="cell.y" :width="cellSize" :height="cellSize" :fill="cell.fill"></rect>
                 </svg>                
                 
                 <div class="toolbar">
@@ -31,15 +31,7 @@
         </div>
         <div class="pure-u-1-5 shell-pad">
             <div id="color-picker">
-                <svg class="grid-on" width="128" height="256" viewBox="0 0 128 256">
-                    <g><pixel v-for="i in 4" :x="i" :y="0" fill="red" v-on:click="setColor"></pixel></g>
-                    <g><pixel v-for="i in 4" :x="i" :y="1" fill="orange" v-on:click="setColor"></pixel></g>
-                    <g><pixel v-for="i in 4" :x="i" :y="2" fill="yellow" v-on:click="setColor"></pixel></g>
-                    <g><pixel v-for="i in 4" :x="i" :y="3" fill="green" v-on:click="setColor"></pixel></g>
-                    <g><pixel v-for="i in 4" :x="i" :y="4" fill="blue" v-on:click="setColor"></pixel></g>
-                    <g><pixel v-for="i in 4" :x="i" :y="5" fill="violet" v-on:click="setColor"></pixel></g>
-                    <g><pixel v-for="i in 4" :x="i" :y="6" fill="black" v-on:click="setColor"></pixel></g>
-                </svg>
+                
             </div>
         </div>
     </div>
@@ -63,8 +55,6 @@
     
     <script src="/js/vue.js"></script>
     <script src="/js/components/shell.js"></script>
-    <script src="/js/components/cell.js"></script>
-    <script src="/js/components/canvas_cell.js"></script>
     <script src="/js/components/canvas.js"></script>
     <script src="/js/default_canvas.js"></script>
     <script src="/js/main.js"></script>

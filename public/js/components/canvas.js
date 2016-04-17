@@ -20,6 +20,9 @@ function CanvasModel(data) {
         },
         methods: {
             toggleGrid: _canvasToggleGrid
+        },
+        computed: {
+            viewBox: _canvasGetViewBox
         }
     }
 }
@@ -29,4 +32,11 @@ function CanvasModel(data) {
  */
 function _canvasToggleGrid() {
     this.isShowGrid = !this.isShowGrid;
+}
+
+/**
+ * Return the default viewBox.
+ */
+function _canvasGetViewBox() {
+    return "0 0 " + this.width + " " + this.height;
 }

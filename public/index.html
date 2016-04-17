@@ -17,14 +17,12 @@
     <div id="app" class="pure-g" hidden>
         <div class="pure-u-4-5 shell-pad">            
             <div id="canvas">                
-                <svg v-bind:class="{'grid-on': isShowGrid}" width="512" height="512" viewBox="0 0 512 512">
-                    <g v-for="i in 16">
-                        <pixel v-for="j in 16" :x="j" :y="i" fill="white">
-                    </g>
+                <svg v-bind:class="{'grid-on': canvas.isShowGrid}" :width="canvas.width" :height="canvas.height" :viewBox="canvasViewBox" style="display: block; margin: auto;">
+                    <rect v-for="cell in canvas.cells" r-id="{{$index}}" :x="cell.x" :y="cell.y" :width="canvas.cellSize" :height="canvas.cellSize" :fill="cell.fill" v-on:click="canvasSetRectFill"></rect>
                 </svg>                
                 
                 <div class="toolbar">
-                    <button class="pure-button" v-on:click="toggleGrid" v-bind:class="{'toolbar-btn-on': isShowGrid}">
+                    <button class="pure-button" v-on:click="canvasToggleGrid" v-bind:class="{'toolbar-btn-on': canvas.isShowGrid}">
                         <i class="fa fa-th-large"></i>
                         Toggle Grid
                     </button>
@@ -33,15 +31,7 @@
         </div>
         <div class="pure-u-1-5 shell-pad">
             <div id="color-picker">
-                <svg class="grid-on" width="128" height="256" viewBox="0 0 128 256">
-                    <g><pixel v-for="i in 4" :x="i" :y="0" fill="red" v-on:click="setColor"></pixel></g>
-                    <g><pixel v-for="i in 4" :x="i" :y="1" fill="orange" v-on:click="setColor"></pixel></g>
-                    <g><pixel v-for="i in 4" :x="i" :y="2" fill="yellow" v-on:click="setColor"></pixel></g>
-                    <g><pixel v-for="i in 4" :x="i" :y="3" fill="green" v-on:click="setColor"></pixel></g>
-                    <g><pixel v-for="i in 4" :x="i" :y="4" fill="blue" v-on:click="setColor"></pixel></g>
-                    <g><pixel v-for="i in 4" :x="i" :y="5" fill="violet" v-on:click="setColor"></pixel></g>
-                    <g><pixel v-for="i in 4" :x="i" :y="6" fill="black" v-on:click="setColor"></pixel></g>
-                </svg>
+                
             </div>
         </div>
     </div>
@@ -64,10 +54,9 @@
     </div>
     
     <script src="/js/vue.js"></script>
-    <script src="/js/components/shell.js"></script>
-    <script src="/js/components/pixel.js"></script>
-    <script src="/js/components/canvas.js"></script>
-    <script src="/js/components/color_picker.js"></script>
+    <script src="/js/shell.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/default_canvas.js"></script>
     <script src="/js/main.js"></script>
 </body>
 </html>

@@ -2,41 +2,24 @@
  * Pixelism 1.0
  */
 
-var app;
-var splash;
-
 // Vue
+var app;
 var shell;
-var canvas;
-var pixelComponent;
-var colorPicker;
 
 /**
  * Initialize the application.
  */
 function init() {
-    // Define components
-    pixelComponent = Vue.extend(pixelModel);
-    
-    // Register components
-    Vue.component('pixel', pixelComponent);
-    
-    // Create root instances
+    app = new Vue(new AppModel(createBlankCanvas(27, 48, 12)));
     shell = new Vue(shellModel);
-    canvas = new Vue(canvasModel);
-    colorPicker = new Vue(colorPickerModel);
-    
-    // Other shit
-    app = document.querySelector('#app');
-    splash = document.querySelector('#splash');
 }
 
 /**
  * Hide the splash and show the app.
  */
 function showApp() {
-    app.removeAttribute('hidden');
-    splash.setAttribute('hidden', '');
+    document.querySelector('#app').removeAttribute('hidden');
+    document.querySelector('#splash').setAttribute('hidden', '');
 }
 
 init();

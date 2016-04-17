@@ -38,17 +38,8 @@ body {
     background-color: coral;
 }
 
-#canvas {
-    display: block;
-    height: 512px;
-    margin: auto;
-    width: 512px;
-}
-
 #canvas rect, #color-picker rect {
-    height: 32px;
     stroke-width: 1px;
-    width: 32px;
 }
 
 

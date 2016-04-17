@@ -31,8 +31,18 @@
                 </div>
             </div>
         </div>
-        <div class="pure-u-1-5">
-            The Sidebar           
+        <div class="pure-u-1-5 shell-pad">
+            <div id="color-picker">
+                <svg class="grid-on" width="128" height="256" viewBox="0 0 128 256">
+                    <g><pixel v-for="i in 4" :x="i" :y="0" fill="red" v-on:click="setColor"></pixel></g>
+                    <g><pixel v-for="i in 4" :x="i" :y="1" fill="orange" v-on:click="setColor"></pixel></g>
+                    <g><pixel v-for="i in 4" :x="i" :y="2" fill="yellow" v-on:click="setColor"></pixel></g>
+                    <g><pixel v-for="i in 4" :x="i" :y="3" fill="green" v-on:click="setColor"></pixel></g>
+                    <g><pixel v-for="i in 4" :x="i" :y="4" fill="blue" v-on:click="setColor"></pixel></g>
+                    <g><pixel v-for="i in 4" :x="i" :y="5" fill="violet" v-on:click="setColor"></pixel></g>
+                    <g><pixel v-for="i in 4" :x="i" :y="6" fill="black" v-on:click="setColor"></pixel></g>
+                </svg>
+            </div>
         </div>
     </div>
     
@@ -57,6 +67,7 @@
     <script src="/js/components/shell.js"></script>
     <script src="/js/components/pixel.js"></script>
     <script src="/js/components/canvas.js"></script>
+    <script src="/js/components/color_picker.js"></script>
     <script src="/js/main.js"></script>
 </body>
 </html>

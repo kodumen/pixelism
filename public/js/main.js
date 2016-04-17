@@ -9,6 +9,7 @@ var splash;
 var shell;
 var canvas;
 var pixelComponent;
+var colorPicker;
 
 /**
  * Initialize the application.
@@ -23,6 +24,7 @@ function init() {
     // Create root instances
     shell = new Vue(shellModel);
     canvas = new Vue(canvasModel);
+    colorPicker = new Vue(colorPickerModel);
     
     // Other shit
     app = document.querySelector('#app');

@@ -30,5 +30,5 @@ function _pixelGetY() {
  * Set the fill of this pixel.
  */
 function _pixelSetFill() {
-    this.fill = 'black';
+    this.fill = colorPicker.color;
 }

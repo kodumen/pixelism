@@ -12,6 +12,7 @@ function AppModel(canvas) {
         data: {
             canvas: {
                 isShowGrid: true,
+                isMousedown: false,
                 width: width,
                 height: height,
                 rows: canvas.rows,
@@ -25,7 +26,10 @@ function AppModel(canvas) {
         },
         methods: {
             canvasToggleGrid: _appCanvasToggleGrid,
-            canvasSetRectFill: _appCanvasSetRectFill
+            canvasSetRectFill: _appCanvasSetRectFill,
+            canvasPaintCell: _appCanvasPaintCell,
+            canvasMousedown: _appCanvasMousedown,
+            canvasMouseup: _appCanvasMouseup
         },
         computed: {
             canvasViewBox: _appCanvasGetViewBox
@@ -57,4 +61,18 @@ function _appCanvasSetRectFill(event) {
     // be updated.
     var rectId = event.target.getAttribute('r-id');
     this.canvas.cells[rectId].fill = '#000';
+}
+
+function _appCanvasMousedown() {
+    this.canvas.isMousedown = true;
+}
+
+function _appCanvasMouseup() {
+    this.canvas.isMousedown = false;
+}
+
+function _appCanvasPaintCell(event) {
+    if (this.canvas.isMousedown) {
+        console.log(event.offsetX, event.offsetY);        
+    }
 }

@@ -16,7 +16,7 @@
     
     <div id="app" class="pure-g" hidden>
         <div class="pure-u-4-5 shell-pad">  
-            <svg id="canvas" :width="canvas.width" :height="canvas.height" :viewBox="canvasViewBox" style="display: block; margin: auto;" v-on:mousemove="canvasPaintCell" v-on:mousedown="canvasMousedown" v-on:mouseup="canvasMouseup" v-on:mouseleave="canvasMouseup" fill="url(#Grid)>
+            <svg id="canvas" :width="canvas.width" :height="canvas.height" :viewBox="canvasViewBox" style="display: block; margin: auto;" v-on:mousemove="canvasPaintCell" v-on:mousedown="canvasMousedown" v-on:mouseup="canvasMouseup" v-on:mouseleave="canvasMouseup">
                 <defs>
                     <pattern id="Grid" v-bind:class="{'grid-on': canvas.isShowGrid}"
                             :width="canvas.cellSize" :height="canvas.cellSize"
@@ -26,7 +26,7 @@
                     </pattern>
                 </defs>
                 <rect v-for="cell in canvas.cells" r-id="{{$index}}" :x="cell.x" :y="cell.y" :width="canvas.cellSize" :height="canvas.cellSize" :fill="cell.fill"></rect>
-                <!--<rect x="0" y="0" :width="canvas.width" :height="canvas.height" fill="url(#Grid)"></rect>-->
+                <rect x="0" y="0" :width="canvas.width" :height="canvas.height" fill="url(#Grid)" style="pointer-events: none"></rect>
             </svg>
             <div class="toolbar">
                 <button class="pure-button" v-on:click="canvasToggleGrid" v-bind:class="{'toolbar-btn-on': canvas.isShowGrid}">

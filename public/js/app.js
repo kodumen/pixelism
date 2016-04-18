@@ -12,13 +12,15 @@ function AppModel(canvas) {
         data: {
             canvas: {
                 isShowGrid: true,
-                isMousedown: false,
+                _isMousedown: false,
                 width: width,
                 height: height,
                 rows: canvas.rows,
                 columns: canvas.columns,
                 cellSize: canvas.cellSize,
-                cells: canvas.cells
+                cells: canvas.cells,
+                _lastX: null,
+                _lastY: null
             },
             colorPicker: {
                 fill: '#000' 
@@ -26,7 +28,6 @@ function AppModel(canvas) {
         },
         methods: {
             canvasToggleGrid: _appCanvasToggleGrid,
-            canvasSetRectFill: _appCanvasSetRectFill,
             canvasPaintCell: _appCanvasPaintCell,
             canvasMousedown: _appCanvasMousedown,
             canvasMouseup: _appCanvasMouseup
@@ -52,34 +53,63 @@ function _appCanvasGetViewBox() {
 }
 
 /**
- * Set the fill of the clicked rectangle.
+ * The left mouse button is pressed.
+ * 
+ * @param event
  */
-function _appCanvasSetRectFill(event) {
-    // Why not just change the rect's fill attribute?
-    // Dunno. Data integrity or some shit. If I set the
-    // rect attribute, its value in canvas.cells won't
-    // be updated.
-    var rectId = event.target.getAttribute('r-id');
-    this.canvas.cells[rectId].fill = '#000';
+function _appCanvasMousedown(event) {
+    this.canvas._isMousedown = true;
+    this.canvasPaintCell(event);
 }
 
-function _appCanvasMousedown() {
-    this.canvas.isMousedown = true;
+/**
+ * The left mouse button is not pressed.
+ * 
+ * @param event
+ */
+function _appCanvasMouseup(event) {
+    this.canvas._isMousedown = false;
+    this.canvas._lastX = null;
+    this.canvas._lastY = null;
 }
 
-function _appCanvasMouseup() {
-    this.canvas.isMousedown = false;
-}
-
-function _appCanvasPaintCell(event) {
-    if (!this.canvas.isMousedown) {
+/**
+ * Add a new cell to the canvas or modify the existing one.
+ * 
+ * @param event
+ */
+function _appCanvasPaintCell(event) {    
+    if (!this.canvas._isMousedown) {
         return;        
     }
     
-    var x = event.offsetX < 0 ? 0 : _appCanvasGetCoord(event.offsetX, this.canvas.cellSize);
-    var y = event.offsetY < 0 ? 0 : _appCanvasGetCoord(event.offsetY, this.canvas.cellSize);
+    var x = _appCanvasGetCoord(
+        event.offsetX,
+        this.canvas.cellSize,
+        this.canvas.width
+    );
+    var y = _appCanvasGetCoord(
+        event.offsetY,
+        this.canvas.cellSize,
+        this.canvas.height
+    );
     
-    console.log(x, y);
+    if (x == this.canvas._lastX && y == this.canvas._lastY) {
+        return;
+    }
+    
+    // If the mouse is over a cell, change the fill value instead of creating
+    // a new one.
+    if (event.target.hasAttribute('r-id')) {
+        // #f00 is just a test
+        this.canvas.cells[event.target.getAttribute('r-id')].fill = '#f00';
+    }    
+    else {
+        this.canvas.cells.push(new Cell(x, y, '#000'));
+    }
+    
+    this.canvas._lastX = x;
+    this.canvas._lastY = y;
 }
 
 /**
@@ -88,7 +118,14 @@ function _appCanvasPaintCell(event) {
  * 
  * @param {number} num
  * @param {number} size
+ * @param {number} max
  */
-function _appCanvasGetCoord(num, size) {
-    return Math.floor(num / size) * size;
+function _appCanvasGetCoord(num, size, max) {
+    if (num < 0) {
+        num = 0;
+    } else if (num >= max) {
+        num = max - size;
+    }
+    
+    return num < 0 ? 0 : Math.floor(num / size) * size;
 }

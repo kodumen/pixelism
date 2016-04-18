@@ -13,7 +13,8 @@ function createBlankCanvas(rows, columns, cellSize) {
         // Unit in pixels.
         cellSize: cellSize,
         
-        cells: _createCellArray(rows, columns, cellSize, '#fff')
+        // cells: _createCellArray(rows, columns, cellSize, '#fff')
+        cells: []
     };
 }
 

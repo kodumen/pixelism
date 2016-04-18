@@ -33,7 +33,7 @@ function _createCellArray(rows, columns, cellSize, background) {
         for (var j = 0; j < columns; j++) {
             var x = j * cellSize;
             var y = i * cellSize;
-            data.push(_createCell(x, y, background));
+            data.push(new CreateCell(x, y, background));
         }
     }
     return data;
@@ -46,7 +46,7 @@ function _createCellArray(rows, columns, cellSize, background) {
  * @param {number} y
  * @param {string} fill
  */
-function _createCell(x, y, fill) {
+function CreateCell(x, y, fill) {
     return {
         x: x,
         y: y,

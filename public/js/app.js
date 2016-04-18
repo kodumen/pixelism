@@ -72,7 +72,23 @@ function _appCanvasMouseup() {
 }
 
 function _appCanvasPaintCell(event) {
-    if (this.canvas.isMousedown) {
-        console.log(event.offsetX, event.offsetY);        
+    if (!this.canvas.isMousedown) {
+        return;        
     }
+    
+    var x = event.offsetX < 0 ? 0 : _appCanvasGetCoord(event.offsetX, this.canvas.cellSize);
+    var y = event.offsetY < 0 ? 0 : _appCanvasGetCoord(event.offsetY, this.canvas.cellSize);
+    
+    console.log(x, y);
+}
+
+/**
+ * Get the floor of the number or something. I can't
+ * properly explain it.
+ * 
+ * @param {number} num
+ * @param {number} size
+ */
+function _appCanvasGetCoord(num, size) {
+    return Math.floor(num / size) * size;
 }

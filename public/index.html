@@ -32,7 +32,7 @@
                 <button v-on:click="canvasToggleGrid" v-bind:class="{'toolbar-btn-on': canvas.isShowGrid}">
                     Toggle Grid
                 </button>
-                <svg id="color-picker" width="140" height="35" viewBox="0 0 140 35" v-on:click="colorPickerGetFill">
+                <svg id="color-picker" width="140" height="35" viewBox="0 0 140 35" v-on:mousedown="colorPickerGetFill">
                     <rect v-for="c in colorPicker.pallete" r-id="{{$index}}" :x="$index * 35" y="0" width="35" * height="35" :fill="c"></rect>
                 </svg>
             </div>

@@ -23,7 +23,7 @@ function AppModel(canvas) {
                 _lastY: null
             },
             colorPicker: {
-                fill: '#000',
+                fill: '#fff',
                 pallete: [
                     '#fff',
                     '#a2b3f1',

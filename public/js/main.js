@@ -10,7 +10,7 @@ var shell;
  * Initialize the application.
  */
 function init() {
-    app = new Vue(new AppModel(new BlankCanvas(27, 48, 12)));
+    app = new Vue(new AppModel(new BlankCanvas(45, 80, 9)));
     shell = new Vue(shellModel);
 }
 

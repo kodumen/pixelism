@@ -21,7 +21,7 @@
     
     <div id="app" class="pure-g" hidden>
         <div class="header-pad">  
-            <svg id="canvas" :width="canvas.width" :height="canvas.height" :viewBox="canvasViewBox" style="display: block; margin: auto;" v-on:mousemove="canvasPaintCell" v-on:mousedown="canvasMousedown" v-on:mouseup="canvasMouseup" v-on:mouseleave="canvasMouseup">
+            <svg v-el:canvas id="canvas" :width="canvas.width" :height="canvas.height" :viewBox="canvasViewBox" style="display: block; margin: auto;" v-on:mousemove="canvasPaintCell" v-on:mousedown="canvasMousedown" v-on:mouseup="canvasMouseup" v-on:mouseleave="canvasMouseup">
                 <defs>
                     <pattern id="Grid" v-bind:class="{'grid-on': canvas.isShowGrid}"
                             :width="canvas.cellSize" :height="canvas.cellSize"
@@ -30,7 +30,7 @@
                         <line :x1="canvas.cellSize" :y1="canvas.cellSize" x2="0" :y2="canvas.cellSize"></line>
                     </pattern>
                 </defs>
-                <rect v-for="cell in canvas.cells" r-id="{{$index}}" :x="cell.x" :y="cell.y" :width="canvas.cellSize" :height="canvas.cellSize" :fill="cell.fill"></rect>
+                <rect v-for="cell in canvas.cells" id="{{cell.x + '-' + cell.y}}" r-id="{{$index}}" :x="cell.x" :y="cell.y" :width="canvas.cellSize" :height="canvas.cellSize" :fill="cell.fill"></rect>
                 <rect x="0" y="0" :width="canvas.width" :height="canvas.height" fill="url(#Grid)" style="pointer-events: none"></rect>
             </svg>
             <div class="toolbar">
@@ -45,6 +45,7 @@
         </div>
     </div>
     
+    <script src="/socket.io/socket.io.js"></script>
     <script src="/js/vue.js"></script>
     <script src="/js/get_json.js"></script>
     <script src="/js/app.js"></script>

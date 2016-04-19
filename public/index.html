@@ -14,32 +14,28 @@
         <p>Loading...</p>
     </div>
     
-    <div class="app-container">
-        <div id="app" class="pure-g" hidden>
-            <div class="pure-u-4-5 shell-pad">  
-                <svg id="canvas" :width="canvas.width" :height="canvas.height" :viewBox="canvasViewBox" style="display: block; margin: auto;" v-on:mousemove="canvasPaintCell" v-on:mousedown="canvasMousedown" v-on:mouseup="canvasMouseup" v-on:mouseleave="canvasMouseup">
-                    <defs>
-                        <pattern id="Grid" v-bind:class="{'grid-on': canvas.isShowGrid}"
-                                :width="canvas.cellSize" :height="canvas.cellSize"
-                                patternUnits="userSpaceOnUse">
-                            <line :x1="canvas.cellSize" y1="0" :x2="canvas.cellSize" :y2="canvas.cellSize"></line>
-                            <line :x1="canvas.cellSize" :y1="canvas.cellSize" x2="0" :y2="canvas.cellSize"></line>
-                        </pattern>
-                    </defs>
-                    <rect v-for="cell in canvas.cells" r-id="{{$index}}" :x="cell.x" :y="cell.y" :width="canvas.cellSize" :height="canvas.cellSize" :fill="cell.fill"></rect>
-                    <rect x="0" y="0" :width="canvas.width" :height="canvas.height" fill="url(#Grid)" style="pointer-events: none"></rect>
+    <div id="app" class="pure-g" hidden>
+        <div class="shell-pad">  
+            <svg id="canvas" :width="canvas.width" :height="canvas.height" :viewBox="canvasViewBox" style="display: block; margin: auto;" v-on:mousemove="canvasPaintCell" v-on:mousedown="canvasMousedown" v-on:mouseup="canvasMouseup" v-on:mouseleave="canvasMouseup">
+                <defs>
+                    <pattern id="Grid" v-bind:class="{'grid-on': canvas.isShowGrid}"
+                            :width="canvas.cellSize" :height="canvas.cellSize"
+                            patternUnits="userSpaceOnUse">
+                        <line :x1="canvas.cellSize" y1="0" :x2="canvas.cellSize" :y2="canvas.cellSize"></line>
+                        <line :x1="canvas.cellSize" :y1="canvas.cellSize" x2="0" :y2="canvas.cellSize"></line>
+                    </pattern>
+                </defs>
+                <rect v-for="cell in canvas.cells" r-id="{{$index}}" :x="cell.x" :y="cell.y" :width="canvas.cellSize" :height="canvas.cellSize" :fill="cell.fill"></rect>
+                <rect x="0" y="0" :width="canvas.width" :height="canvas.height" fill="url(#Grid)" style="pointer-events: none"></rect>
+            </svg>
+            <div class="toolbar">
+                <button v-on:click="canvasToggleGrid" v-bind:class="{'toolbar-btn-on': canvas.isShowGrid}">
+                    Toggle Grid
+                </button>
+                <svg id="color-picker" width="140" height="35" viewBox="0 0 140 35" v-on:mousedown="colorPickerGetFill">
+                    <rect v-for="c in colorPicker.pallete" r-id="{{$index}}" :x="$index * 35" y="0" width="35" * height="35" :fill="c"></rect>
                 </svg>
-                <div class="toolbar">
-                    <button class="pure-button" v-on:click="canvasToggleGrid" v-bind:class="{'toolbar-btn-on': canvas.isShowGrid}">
-                        <i class="fa fa-th-large"></i>
-                        Toggle Grid
-                    </button>
-                </div>
-            </div>
-            <div class="pure-u-1-5 shell-pad">
-                <div id="color-picker">
-                    
-                </div>
+                <div id="color-indicator" style="width: 33px; height: 33px" v-bind:style="{'background-color': colorPicker.fill}"></div>
             </div>
         </div>
     </div>

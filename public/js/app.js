@@ -156,5 +156,9 @@ function _appCanvasGetCoord(num, size, max) {
  * @param event
  */
 function _appColorPickerGetFill(event) {
+    if (event.target.localName != 'rect') {
+        return;
+    }
+    
     this.colorPicker.fill = event.target.getAttribute('fill');
 }

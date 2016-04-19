@@ -24,6 +24,7 @@ function init(event) {
     app = new Vue(new AppModel(new BlankCanvas(45, 80, 9), palette));
     
     socket = io();
+    initSocketListeners();
     showApp();
     console.log('APP LOADED');
 }
@@ -34,4 +35,11 @@ function init(event) {
 function showApp() {
     document.querySelector('#app').removeAttribute('hidden');
     document.querySelector('#splash').setAttribute('hidden', '');
+}
+
+/**
+ * Initialize listeners to the socket connection.
+ */
+function initSocketListeners() {
+    socket.on('broadcast-cell', app.canvasReceiveCell);
 }

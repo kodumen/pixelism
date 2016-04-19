@@ -33,6 +33,7 @@ function AppModel(canvas, palette) {
             canvasPaintCell: _appCanvasPaintCell,
             canvasMousedown: _appCanvasMousedown,
             canvasMouseup: _appCanvasMouseup,
+            canvasReceiveCell: _appCanvasReceiveCell,
             colorPickerGetFill: _appColorPickerGetFill
         },
         computed: {
@@ -175,4 +176,13 @@ function _appCanvasEmitCell(cell) {
     if (socket) {
         socket.emit('paint', cell);
     }
+}
+
+/**
+ * Receive a cell from the server.
+ * 
+ * @param cell
+ */
+function _appCanvasReceiveCell(cell) {
+    console.log(cell);
 }

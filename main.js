@@ -3,6 +3,7 @@ var express = require('express');
 var http = require('http');
 var socket = require('socket.io');
 var colorPalette = require(__dirname + '/api/color_palette');
+var socketEvents = require(__dirname + '/api/socket_events');
 
 var PUBLIC_DIR = 'public';
 var DEFAULT_PORT = 80;
@@ -15,9 +16,7 @@ app.get('/api/colors', colorPalette.generate);
 
 io.on('connection', function (s) {
     console.log('user connected');
-    s.on('paint', function (cell) {
-        console.log(cell);
-    });
+    s.on('paint', socketEvents.broadcastCell(s));
 });
 
 app.use(express.static(PUBLIC_DIR));

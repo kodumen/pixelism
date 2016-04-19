@@ -68,13 +68,17 @@ body {
 }
 
 #color-picker {
-    border: solid 1px #fff;
+    border: solid 1px #555;
     float: right;
 }
 
 #color-picker rect {
-    stroke: #fff;
+    stroke: #555;
     stroke-width: 1;
+}
+
+#color-picker .selected {
+    stroke-width: 4;
 }
 
 /* Padding that takes the #shell into account. */

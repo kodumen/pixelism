@@ -13,8 +13,11 @@ var io = socket(server);
 
 app.get('/api/colors', colorPalette.generate);
 
-io.on('connection', function () {
-    console.log('User connected.');
+io.on('connection', function (s) {
+    console.log('user connected');
+    s.on('paint', function (cell) {
+        console.log(cell);
+    });
 });
 
 app.use(express.static(PUBLIC_DIR));

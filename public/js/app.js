@@ -101,6 +101,8 @@ function _appCanvasPaintCell(event) {
         return;
     }
     
+    var cell;
+    
     // If the mouse is over a cell, change the fill value instead of creating
     // a new one.
     if (event.target.hasAttribute('r-id')) {
@@ -119,15 +121,18 @@ function _appCanvasPaintCell(event) {
             return;
         }
         
-        // #f00 is just a test
-        this.canvas.cells[event.target.getAttribute('r-id')].fill = this.colorPicker.fill;
+        cell = this.canvas.cells[event.target.getAttribute('r-id')];
+        cell.fill = this.colorPicker.fill;
     }    
     else {
-        this.canvas.cells.push(new Cell(x, y, this.colorPicker.fill));
+        cell = new Cell(x, y, this.colorPicker.fill);
+        this.canvas.cells.push(cell);
     }
     
     this.canvas._lastX = x;
     this.canvas._lastY = y;
+    
+    _appCanvasEmitCell(cell);
 }
 
 
@@ -161,4 +166,13 @@ function _appColorPickerGetFill(event) {
     }
     
     this.colorPicker.fill = event.target.getAttribute('fill');
+}
+
+/**
+ * Emit the cell data via socket.
+ */
+function _appCanvasEmitCell(cell) {
+    if (socket) {
+        socket.emit('paint', cell);
+    }
 }

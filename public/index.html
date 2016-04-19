@@ -33,8 +33,9 @@
                     Toggle Grid
                 </button>
                 <svg id="color-picker" width="140" height="35" viewBox="0 0 140 35" v-on:mousedown="colorPickerGetFill">
-                    <rect v-for="c in colorPicker.pallete" r-id="{{$index}}" :x="$index * 35" y="0" width="35" * height="35" :fill="c" v-bind:class="{'selected': c == colorPicker.fill}"></rect>
+                    <rect v-for="c in colorPicker.pallete" r-id="{{$index}}" :x="$index * 35" y="0" width="35" * height="35" :fill="c"></rect>
                 </svg>
+                <div id="color-indicator" style="width: 33px; height: 33px" v-bind:style="{'background-color': colorPicker.fill}"></div>
             </div>
         </div>
     </div>

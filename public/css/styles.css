@@ -77,8 +77,11 @@ body {
     stroke-width: 1;
 }
 
-#color-picker .selected {
-    stroke-width: 4;
+#color-indicator {
+    border: solid 2px #555;
+    border-radius: 100%;
+    float: right;
+    margin: 0 8px;
 }
 
 /* Padding that takes the #shell into account. */

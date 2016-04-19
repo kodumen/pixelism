@@ -9,6 +9,7 @@
   "author": "rdaitan",
   "license": "ISC",
   "dependencies": {
+    "color-generator": "^0.1.0",
     "dotenv": "^2.0.0",
     "express": "^4.13.4"
   },

@@ -2,8 +2,9 @@
  * Create an AppModel instance.
  * 
  * @param {object} canvas
+ * @param {[]} pallete
  */
-function AppModel(canvas) {
+function AppModel(canvas, palette) {
     var width = canvas.columns * canvas.cellSize;
     var height = canvas.rows * canvas.cellSize;
     
@@ -24,12 +25,7 @@ function AppModel(canvas) {
             },
             colorPicker: {
                 fill: '#fff',
-                pallete: [
-                    '#fff',
-                    '#a2b3f1',
-                    '#ed6502',
-                    '#dd44a6'
-                ]
+                palette: palette
             }            
         },
         methods: {

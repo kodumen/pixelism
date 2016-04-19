@@ -38,13 +38,14 @@ body {
     background-color: coral;
 }
 
-#canvas rect, #color-picker rect {
-    stroke-width: 1px;
+#canvas {
+    background-color: #fff;
+    border: solid 1px #000;
 }
 
-
-.grid-on rect {
-    stroke: black;
+.grid-on {
+    stroke: #000;
+    stroke-width: 1px;
 }
 
 .toolbar {

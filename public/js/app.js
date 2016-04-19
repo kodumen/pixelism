@@ -101,6 +101,21 @@ function _appCanvasPaintCell(event) {
     // If the mouse is over a cell, change the fill value instead of creating
     // a new one.
     if (event.target.hasAttribute('r-id')) {
+        // Sometimes, such as when the mouse is moving slowly,
+        // var x and var y would be equal to the coordinates of the
+        // cell adjacent to the last. However, the target is the same
+        // rect with the _lastX and _lastY position. This causes the 
+        // that rect's fill to be set, and skips the actual current cell
+        // because _lastX and _lastY values already changed.
+        // This would check if we're targeting the wrong rect and halts
+        // the function if we are.
+        var targetX = event.target.getAttribute('x');
+        var targetY = event.target.getAttribute('y');
+        
+        if (targetX == this.canvas._lastX && targetY == this.canvas._lastY) {
+            return;
+        }
+        
         // #f00 is just a test
         this.canvas.cells[event.target.getAttribute('r-id')].fill = '#f00';
     }    
@@ -111,6 +126,8 @@ function _appCanvasPaintCell(event) {
     this.canvas._lastX = x;
     this.canvas._lastY = y;
 }
+
+
 
 /**
  * Get the floor of the number or something. I can't

@@ -30,7 +30,7 @@
                         <line :x1="canvas.cellSize" :y1="canvas.cellSize" x2="0" :y2="canvas.cellSize"></line>
                     </pattern>
                 </defs>
-                <rect v-for="cell in canvas.cells" r-id="{{$index}}" :x="cell.x" :y="cell.y" :width="canvas.cellSize" :height="canvas.cellSize" :fill="cell.fill"></rect>
+                <rect v-for="cell in canvas.cells" id="{{cell.x + '-' + cell.y}}" r-id="{{$index}}" :x="cell.x" :y="cell.y" :width="canvas.cellSize" :height="canvas.cellSize" :fill="cell.fill"></rect>
                 <rect x="0" y="0" :width="canvas.width" :height="canvas.height" fill="url(#Grid)" style="pointer-events: none"></rect>
             </svg>
             <div class="toolbar">

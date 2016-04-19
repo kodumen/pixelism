@@ -14,6 +14,8 @@ body {
 
 #app {
     height: 100%;
+    margin: auto;
+    width: 720px;
 }
 
 #menu {
@@ -40,11 +42,11 @@ body {
 
 #canvas {
     background-color: #fff;
-    border: solid 1px #000;
+    border: solid 1px #111;
 }
 
 .grid-on {
-    stroke: #000;
+    stroke: #111;
     stroke-width: 1px;
 }
 
@@ -54,17 +56,14 @@ body {
 
 .toolbar button {
     background-color: #333;
-    color: white;
+    border: solid 1px coral;
+    color: coral;
+    padding: 8px;
 }
 
-.toolbar .toolbar-btn-on,
-.toolbar .toolbar-btn-on:hover {
+.toolbar .toolbar-btn-on {
     background-color: coral;
-}
-
-.app-container {
-    margin: auto;
-    width: 720px;
+    color: white;
 }
 
 /* Padding that takes the #shell into account. */

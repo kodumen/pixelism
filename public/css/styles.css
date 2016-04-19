@@ -18,25 +18,15 @@ body {
     width: 720px;
 }
 
-#menu {
-    background-color: #555;
-    display: inline-block;
-    height: 100%;
-    position: fixed;
-    top: 0;
-}
-
-#header {
+#header, #header .pure-menu-link:focus {
     background-color: #111;
-    position: fixed;
-    top: 0;
 }
 
-.pure-menu-heading, #menu .pure-menu-link {
+.pure-menu-heading, #header .pure-menu-link {
     color: #fff;
 }
 
-#menu .pure-menu-link:hover, #menu .pure-menu-link:focus {
+#header .pure-menu-link:hover {
     background-color: coral;
 }
 
@@ -84,13 +74,7 @@ body {
     margin: 0 8px;
 }
 
-/* Padding that takes the #shell into account. */
-.shell-pad {
-    padding: 70px 0 0;
-}
-
-/* Override animate.css animation duration. */
-.animated {
-    -webkit-animation-duration: 0.08s;
-    animation-duration: 0.08s;
+/* Padding that takes the #header into account. */
+.header-pad {
+    padding: 35px 0 0;
 }

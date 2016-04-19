@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pixelism</title>
     <link rel="stylesheet" href="/css/pure.css">
-    <link rel="stylesheet" href="/fonts/css/font-awesome.css">
-    <link rel="stylesheet" href="/css/animate.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <div id="splash" class="shell-pad">
+    <div id="header" class="pure-menu pure-menu-horizontal">
+        <a href="#" class="pure-menu-heading pure-menu-link">Pixelism</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Github</a></li>
+        </ul>
+    </div>
+    
+    <div id="splash" class="header-pad">
         <p>Loading...</p>
     </div>
     
     <div id="app" class="pure-g" hidden>
-        <div class="shell-pad">  
+        <div class="header-pad">  
             <svg id="canvas" :width="canvas.width" :height="canvas.height" :viewBox="canvasViewBox" style="display: block; margin: auto;" v-on:mousemove="canvasPaintCell" v-on:mousedown="canvasMousedown" v-on:mouseup="canvasMouseup" v-on:mouseleave="canvasMouseup">
                 <defs>
                     <pattern id="Grid" v-bind:class="{'grid-on': canvas.isShowGrid}"
@@ -40,25 +45,7 @@
         </div>
     </div>
     
-    <div id="shell">
-        <div id="menu" class="pure-menu animated" style="display:none" v-show="isMenuActive" v-bind:class="[menuAnimation]">
-            <ul class="pure-menu-list shell-pad">
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Draw</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">About</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Github</a></li>
-            </ul>
-        </div>
-        
-        <div id="header" class="pure-menu pure-menu-horizontal">
-            <a href="#" role="button" class="pure-menu-heading" v-on:click="toggleMenu">
-                <i class="fa fa-bars"></i>
-            </a>
-            <a href="#" class="pure-menu-heading">Pixelism</a>
-        </div>
-    </div>
-    
     <script src="/js/vue.js"></script>
-    <script src="/js/shell.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/canvas_utils.js"></script>
     <script src="/js/main.js"></script>

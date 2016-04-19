@@ -8,6 +8,7 @@ document.addEventListener('jsonloaded', init);
 
 var palette = getJson('/api/colors');
 var app;
+var socket;
 
 /**
  * Initialize the application.
@@ -22,6 +23,7 @@ function init(event) {
     
     app = new Vue(new AppModel(new BlankCanvas(45, 80, 9), palette));
     
+    socket = io();
     showApp();
     console.log('APP LOADED');
 }

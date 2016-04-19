@@ -3,10 +3,10 @@ var colorGenerator = require('color-generator');
 /**
  * Number of colors to generate.
  */
-var PALLETE_COUNT = 3;
+var PALETTE_COUNT = 3;
 
 /**
- * Generate colors based on PALLETE_COUNT.
+ * Generate colors based on PALETTE_COUNT.
  * There will always be #fff.
  * 
  * @param req
@@ -14,14 +14,14 @@ var PALLETE_COUNT = 3;
  */
 function generate(req, res) {
     // 
-    var pallete = ['#fff'];
+    var palette = ['#fff'];
     
-    for (var i = 0; i < PALLETE_COUNT; i++) {
-        pallete.push(colorGenerator().hexString());
+    for (var i = 0; i < PALETTE_COUNT; i++) {
+        palette.push(colorGenerator().hexString());
     }
     
     res.send({
-        data: pallete,
+        data: palette,
         meta: {
             status: 'OK'
         }

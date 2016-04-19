@@ -1,0 +1,80 @@
+html {
+    height: 100%;    
+}
+
+body {
+    background-color: #333;
+    color: #fff;
+    height: 100%;
+}
+
+#splash {
+    text-align: center;
+}
+
+#app {
+    height: 100%;
+    margin: auto;
+    width: 720px;
+}
+
+#header, #header .pure-menu-link:focus {
+    background-color: #111;
+}
+
+.pure-menu-heading, #header .pure-menu-link {
+    color: #fff;
+}
+
+#header .pure-menu-link:hover {
+    background-color: coral;
+}
+
+#canvas {
+    background-color: #fff;
+    border: solid 1px #111;
+}
+
+.grid-on {
+    stroke: #111;
+    stroke-width: 1px;
+}
+
+.toolbar {
+    padding: 16px 0 0;
+}
+
+.toolbar button {
+    background-color: #333;
+    border: solid 1px coral;
+    color: coral;
+    padding: 8px;
+    vertical-align: top;
+}
+
+.toolbar .toolbar-btn-on {
+    background-color: coral;
+    color: white;
+}
+
+#color-picker {
+    border: solid 1px #555;
+    float: right;
+}
+
+#color-picker rect {
+    stroke: #555;
+    stroke-width: 1;
+}
+
+#color-indicator {
+    border: solid 2px #555;
+    border-radius: 50%;
+    float: right;
+    margin: 0 8px;
+}
+
+/* Padding that takes the #header into account. */
+.header-pad {
+    padding: 35px 0 0;
+}

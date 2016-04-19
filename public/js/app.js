@@ -36,7 +36,8 @@ function AppModel(canvas) {
             canvasToggleGrid: _appCanvasToggleGrid,
             canvasPaintCell: _appCanvasPaintCell,
             canvasMousedown: _appCanvasMousedown,
-            canvasMouseup: _appCanvasMouseup
+            canvasMouseup: _appCanvasMouseup,
+            colorPickerGetFill: _appColorPickerGetFill
         },
         computed: {
             canvasViewBox: _appCanvasGetViewBox
@@ -151,4 +152,13 @@ function _appCanvasGetCoord(num, size, max) {
     }
     
     return num < 0 ? 0 : Math.floor(num / size) * size;
+}
+
+/**
+ * Get the fill of the target element.
+ * 
+ * @param event
+ */
+function _appColorPickerGetFill(event) {
+    this.colorPicker.fill = event.target.getAttribute('fill');
 }

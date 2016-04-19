@@ -59,11 +59,22 @@ body {
     border: solid 1px coral;
     color: coral;
     padding: 8px;
+    vertical-align: top;
 }
 
 .toolbar .toolbar-btn-on {
     background-color: coral;
     color: white;
+}
+
+#color-picker {
+    border: solid 1px #fff;
+    float: right;
+}
+
+#color-picker rect {
+    stroke: #fff;
+    stroke-width: 1;
 }
 
 /* Padding that takes the #shell into account. */

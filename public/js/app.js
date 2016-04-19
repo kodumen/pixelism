@@ -23,7 +23,13 @@ function AppModel(canvas) {
                 _lastY: null
             },
             colorPicker: {
-                fill: '#000' 
+                fill: '#000',
+                pallete: [
+                    '#fff',
+                    '#a2b3f1',
+                    '#ed6502',
+                    '#dd44a6'
+                ]
             }            
         },
         methods: {
@@ -117,10 +123,10 @@ function _appCanvasPaintCell(event) {
         }
         
         // #f00 is just a test
-        this.canvas.cells[event.target.getAttribute('r-id')].fill = '#f00';
+        this.canvas.cells[event.target.getAttribute('r-id')].fill = this.colorPicker.fill;
     }    
     else {
-        this.canvas.cells.push(new Cell(x, y, '#000'));
+        this.canvas.cells.push(new Cell(x, y, this.colorPicker.fill));
     }
     
     this.canvas._lastX = x;

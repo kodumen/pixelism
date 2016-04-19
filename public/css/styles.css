@@ -79,7 +79,7 @@ body {
 
 #color-indicator {
     border: solid 2px #555;
-    border-radius: 100%;
+    border-radius: 50%;
     float: right;
     margin: 0 8px;
 }

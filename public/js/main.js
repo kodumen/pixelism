@@ -7,6 +7,7 @@
 document.addEventListener('jsonloaded', init);
 
 var palette = getJson('/api/colors');
+var canvas = getJson('/api/canvas');
 var app;
 var socket;
 
@@ -15,13 +16,14 @@ var socket;
  */
 function init(event) {
     // Check if all contents are actually loaded.
-    if (!palette.response) {
+    if (!palette.response || !canvas.response) {
         return;
     }
     
     palette = JSON.parse(palette.response).data;
+    canvas = JSON.parse(canvas.response).data;
     
-    app = new Vue(new AppModel(new BlankCanvas(45, 80, 9), palette));
+    app = new Vue(new AppModel(canvas, palette));
     
     socket = io();
     initSocketListeners();

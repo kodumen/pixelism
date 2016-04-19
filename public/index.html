@@ -21,7 +21,7 @@
     
     <div id="app" class="pure-g" hidden>
         <div class="header-pad">  
-            <svg id="canvas" :width="canvas.width" :height="canvas.height" :viewBox="canvasViewBox" style="display: block; margin: auto;" v-on:mousemove="canvasPaintCell" v-on:mousedown="canvasMousedown" v-on:mouseup="canvasMouseup" v-on:mouseleave="canvasMouseup">
+            <svg v-el:canvas id="canvas" :width="canvas.width" :height="canvas.height" :viewBox="canvasViewBox" style="display: block; margin: auto;" v-on:mousemove="canvasPaintCell" v-on:mousedown="canvasMousedown" v-on:mouseup="canvasMouseup" v-on:mouseleave="canvasMouseup">
                 <defs>
                     <pattern id="Grid" v-bind:class="{'grid-on': canvas.isShowGrid}"
                             :width="canvas.cellSize" :height="canvas.cellSize"

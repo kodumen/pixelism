@@ -184,5 +184,11 @@ function _appCanvasEmitCell(cell) {
  * @param cell
  */
 function _appCanvasReceiveCell(cell) {
-    console.log(cell);
+    var canvasCell = this.$els.canvas.getElementById(cell.x + '-' + cell.y);
+    
+    if (canvasCell) {
+        this.canvas.cells[canvasCell.getAttribute('r-id')].fill = cell.fill;
+    } else {
+        this.canvas.cells.push(new Cell(cell.x, cell.y, cell.fill));
+    }
 }
